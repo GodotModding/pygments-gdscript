@@ -1,5 +1,6 @@
 from pygments.style import Style
 from pygments.token import (
+    Text,
     Keyword,
     Name,
     Comment,
@@ -16,6 +17,7 @@ class GDScriptStyle(Style):
     background_color = "#1d2229"
 
     styles = {
+        Text:                     "#ffffff", # text
         Whitespace:               "#bbbbbb", # for whitespace
         Comment:                  "#cdcfd2", # any kind of comments
         Punctuation:              "#abc9ff", # punctuation (e.g. [!.,])
