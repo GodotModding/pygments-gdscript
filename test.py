@@ -1,6 +1,7 @@
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
-from gdscript import GDScriptLexer, GDScriptStyle
+from gdscript_lexer import GDScriptLexer
+from gdscript_style import GDScriptStyle
 
 with open("test.gd") as f:
     code = f.read()
