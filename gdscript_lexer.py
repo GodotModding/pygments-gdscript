@@ -19,7 +19,7 @@ class GDScriptLexer(RegexLexer):
 
     name = "GDScript"
     url = "https://www.godotengine.org"
-    aliases = ["gdscript", "gd"]
+    aliases = ["gdscript", "gd", "geedee"]
     filenames = ["*.gd"]
     mimetypes = ["text/x-gdscript", "application/x-gdscript"]
 
