@@ -28,7 +28,7 @@ class GDScriptLexer(RegexLexer):
             (r"%(\(\w+\))?[-#0 +]*([0-9]+|[*])?(\.([0-9]+|[*]))?"
                 "[hlL]?[E-GXc-giorsux%]",
                 String.Interpol),
-            # backslashes, quotes and formatting signs must be parsed one at a time
+            # backslashes, quotes, and formatting signs must be parsed one at a time
             (r'[^\\\'"%\n]+', ttype),
             (r'[\'"\\]', ttype),
             # unhandled string formatting sign
@@ -47,7 +47,7 @@ class GDScriptLexer(RegexLexer):
                 bygroups(Whitespace, String.Affix, String.Doc)),
         ],
         "punctuation": [
-            (r"[]{}(),;[]", Punctuation),
+            (r"[]{}(),:;[]", Punctuation),
             (r":\n", Punctuation),
             (r"\\", Punctuation),
         ],
@@ -137,6 +137,7 @@ class GDScriptLexer(RegexLexer):
             include("whitespace"),
             include("comment"),
             include("punctuation"),
+            include("builtins"),
 
             # strings
             ('([rR]|[uUbB][rR]|[rR][uUbB])(""")',
@@ -167,11 +168,14 @@ class GDScriptLexer(RegexLexer):
             include("operator"),
             include("keywords"),
             (r"(func)(\s+)", bygroups(Keyword, Whitespace), "funcname"),
-            # TODO: make the discernment if the type is Name.Builtin
-            (r"\b(\w+)\s*(:)( )", bygroups(Name.Variable, Punctuation, Whitespace), "typehint"),
-            (r":", Punctuation), # HACK: fix missed colon captures
+            (r'\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()', Name.Function),
 
-            include("builtins"),
+            # NOTE:
+            #   This matches all PascalCase as a class. If this raises issues
+            #   please report it.
+            # see: https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html#naming-conventions
+            (r'\s*([A-Z][a-zA-Z0-9_]*)', Name.Class),
+
             include("name"),
             include("numbers"),
         ],
