@@ -478,3 +478,7 @@ class GDScriptLexer(RegexLexer):
             include("numbers"),
         ],
     }
+
+# HACK: monkey patch the built-in lexer mapping
+from pygments.lexers._mapping import LEXERS
+LEXERS.pop("GDScriptLexer")
