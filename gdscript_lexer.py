@@ -1422,6 +1422,7 @@ class GDScriptLexer(RegexLexer):
         ],
         "strings-single": innerstring_rules(String.Single),
         "strings-double": innerstring_rules(String.Double),
+        "strings-other": innerstring_rules(String.Other),
         "double_quotes": [
             (r'"', String.Double, "#pop"),
             (r'\\\\|\\"|\\\n', String.Escape),  # included here for raw strings
@@ -1442,6 +1443,28 @@ class GDScriptLexer(RegexLexer):
             include("strings-single"),
             include("whitespace"),
         ],
+        "node_references": [
+            (r'[\$%]"', String.Other, include("node_references_double")),
+            (r"[\$%]'", String.Other, include("node_references_single")),
+            (r"[\$%][A-Za-z_][\w/]*/?", String.Other),
+        ],
+        "node_references_double": [
+            (r'"', String.Other, "#pop"),
+            include("strings-other"),
+        ],
+        "node_references_single": [
+            (r"'", String.Other, "#pop"),
+            include("strings-other"),
+        ],
+        "functions": [
+            (r"\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()", Name.Function),
+            (
+                # colored like functions, even without braces
+                words(("set", "get",), suffix=r"\b", ),
+                Name.Function,
+            ),
+        ],
+
         #######################################################################
         # LEXER ENTRY POINT
         #######################################################################
@@ -1451,6 +1474,7 @@ class GDScriptLexer(RegexLexer):
             include("punctuation"),
             include("builtins"),
             # strings
+            include("node_references"),
             (
                 '([rR]|[uUbB][rR]|[rR][uUbB])(""")',
                 bygroups(String.Affix, String.Double),
