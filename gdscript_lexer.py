@@ -84,8 +84,9 @@ class GDScriptLexer(RegexLexer):
                         "super",
                         "yield", # Reserved for potential future use.
                         # Not really keywords, but used in property syntax.
-                        "set",
-                        "get",
+                        # also colored like functions, not keywords
+                        # "set",
+                        # "get",
                     ),
                     suffix=r"\b",
                 ),
@@ -1493,7 +1494,7 @@ class GDScriptLexer(RegexLexer):
             include("operator"),
             include("keywords"),
             (r"(func)(\s+)", bygroups(Keyword, Whitespace), "funcname"),
-            (r"\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()", Name.Function),
+            include("functions"),
             # NOTE:
             #   This matches all PascalCase as a class. If this raises issues
             #   please report it.
