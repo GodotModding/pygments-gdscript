@@ -1518,6 +1518,8 @@ class GDScriptLexer(RegexLexer):
             include("operator"),
             include("keywords"),
             (r"(func)(\s+)", bygroups(Keyword, Whitespace), "funcname"),
+            # consider Name after a . as instance/members variables
+            (r"([a-zA-Z_]\w*)(\.)([a-zA-Z_]\w*)", bygroups(Name, Operator, Name.Variable.Instance)),
             include("functions"),
             # NOTE:
             #   This matches all PascalCase as a class. If this raises issues
