@@ -171,7 +171,13 @@ func literals():
 
 	# There are also two constructs that look like literals, but actually are not:
 	$NodePath # Shorthand for get_node("NodePath")
+	$"NodePath"
+	$"""NodePath"""
+	$'''NodePath'''
+	$'NodePath'
 	%UniqueNode # Shorthand for get_node("%UniqueNode")
+	%"UniqueNode"
+	%'UniqueNode'
 
 	12_345_678  # Equal to 12345678.
 	3.141_592_7  # Equal to 3.1415927.
@@ -179,7 +185,12 @@ func literals():
 	0b11_00_11_00  # Equal to 0b11001100.
 
 	# Regular string literals can contain the following escape sequences:
-	"\n \t \r \a \b \f \v \" \' \\ \u0000 \U000000"
+	"string with escapes \n \t \r \a \b \f \v \" \' \\ \u0000 \U000000"
+	"twice escaped \\n \\t \\r \\a \\b \\f \\v \\' \\\\ \\u0000 \\U000000"
+	# raw string
+	r"string with escapes \n \t \r \a \b \f \v \" \' \\ \u0000 \U000000"
+	r"""\n"""
+
 
 # Annotations
 @export_range(1, 100, 1, "or_greater")

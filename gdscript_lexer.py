@@ -1468,42 +1468,42 @@ class GDScriptLexer(RegexLexer):
             # strings
             include("node_references"),
             (
-                '([rR]|[uUbB][rR]|[rR][uUbB])(""")',
+                '(r)(""")',
                 bygroups(String.Affix, String.Double),
                 "triple_double_quotes",
             ),
             (
-                "([rR]|[uUbB][rR]|[rR][uUbB])(''')",
+                "(r)(''')",
                 bygroups(String.Affix, String.Single),
                 "triple_single_quotes",
             ),
             (
-                '([rR]|[uUbB][rR]|[rR][uUbB])(")',
+                '(r)(")',
                 bygroups(String.Affix, String.Double),
                 "double_quotes",
             ),
             (
-                "([rR]|[uUbB][rR]|[rR][uUbB])(')",
+                "(r)(')",
                 bygroups(String.Affix, String.Single),
                 "single_quotes",
             ),
             (
-                '([uUbB]?)(""")',
+                '(r?)(""")',
                 bygroups(String.Affix, String.Double),
                 combined("stringescape", "triple_double_quotes"),
             ),
             (
-                "([uUbB]?)(''')",
+                "(r?)(''')",
                 bygroups(String.Affix, String.Single),
                 combined("stringescape", "triple_single_quotes"),
             ),
             (
-                '([uUbB]?)(")',
+                '(r?)(")',
                 bygroups(String.Affix, String.Double),
                 combined("stringescape", "double_quotes"),
             ),
             (
-                "([uUbB]?)(')",
+                "(r?)(')",
                 bygroups(String.Affix, String.Single),
                 combined("stringescape", "single_quotes"),
             ),
