@@ -43,16 +43,8 @@ class GDScriptLexer(RegexLexer):
     tokens = {
         "whitespace": [(r"\s+", Whitespace)],
         "comment": [
+            (r"##.*$", Comment.Doc),
             (r"#.*$", Comment.Single),
-            # """ """ and ''' '''
-            (
-                r'^(\s*)([rRuUbB]{,2})("""(?:.|\n)*?""")',
-                bygroups(Whitespace, String.Affix, String.Doc),
-            ),
-            (
-                r"^(\s*)([rRuUbB]{,2})('''(?:.|\n)*?''')",
-                bygroups(Whitespace, String.Affix, String.Doc),
-            ),
         ],
         "punctuation": [
             (r"[]{}(),:;[]", Punctuation),
