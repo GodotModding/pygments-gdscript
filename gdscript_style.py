@@ -16,44 +16,44 @@ from pygments.token import (
 
 class GDScriptStyle(Style):
     godot_theme = {
-        "symbol_color": "#abc9ff",  # --md-code-hl-operator-color, --md-code-hl-punctuation-color
-        "keyword_color": "#ff7085",  # --md-code-hl-keyword-color, --md-code-hl-special-color
-        "control_flow_keyword_color": "#ff8ccc",  #
-        "base_type_color": "#42ffc2",  # .nb.nb-Type
-        "engine_type_color": "#8fffdb",  # --md-code-hl-engine-type-color
-        "user_type_color": "#c7ffed",  # --md-code-hl-user-type-color
-        # "comment_color": "#cdcfd2",  # --md-code-hl-comment-color
-        "comment_color": "#76787E",  # comment without transparency, on this background_color
-        "doc_comment_color": "#99b3cc",  #
-        "string_color": "#ffeda1",  # --md-code-hl-string-color
-        "background_color": "#1d2229",  # --md-code-bg-color
-        "completion_background_color": "#363d4a",  #
-        "completion_selected_color": "#ffffff",  #
-        "completion_existing_color": "#ffffff",  #
-        "completion_font_color": "#cdcfd2",  #
-        "text_color": "#cdcfd2",  # --md-code-hl-generic-color, --md-code-hl-name-color, --md-code-fg-color
-        "line_number_color": "#cdcfd2",  #
-        "safe_line_number_color": "#cdf8d2",  #
-        "caret_color": "#ffffff",  #
-        "selection_color": "#70bafa",  #
-        "brace_mismatch_color": "#ff786b",  #
-        "current_line_color": "#ffffff",  #
-        "line_length_guideline_color": "#363d4a",  #
-        "word_highlighted_color": "#ffffff",  # --md-code-hl-color
-        "number_color": "#a1ffe0",  # --md-code-hl-number-color
-        "function_color": "#57b3ff",  # --md-code-hl-function-color
-        "member_variable_color": "#bce0ff",  # --md-code-hl-variable-color, --md-code-hl-constant-color
-        "mark_color": "#ff786b",  #
-        "breakpoint_color": "#ff786b",  #
-        "code_folding_color": "#ffffff",  #
-        "search_result_color": "#ffffff",  #
+        "symbol_color": "#abc9ff",
+        "keyword_color": "#ff7085",
+        "control_flow_keyword_color": "#ff8ccc",
+        "base_type_color": "#42ffc2",
+        "engine_type_color": "#8fffdb",
+        "user_type_color": "#c7ffed",
+        #"comment_color": "#cdcfd2",
+        "comment_color": "#76787E",  # adjusted for transparency
+        "doc_comment_color": "#99b3cc",
+        "string_color": "#ffeda1",
+        "background_color": "#1d2229",
+        "completion_background_color": "#363d4a",
+        "completion_selected_color": "#ffffff",
+        "completion_existing_color": "#ffffff",
+        "completion_font_color": "#cdcfd2",
+        "text_color": "#cdcfd2",
+        "line_number_color": "#cdcfd2",
+        "safe_line_number_color": "#cdf8d2",
+        "caret_color": "#ffffff",
+        "selection_color": "#70bafa",
+        "brace_mismatch_color": "#ff786b",
+        "current_line_color": "#ffffff",
+        "line_length_guideline_color": "#363d4a",
+        "word_highlighted_color": "#ffffff",
+        "number_color": "#a1ffe0",
+        "function_color": "#57b3ff",
+        "member_variable_color": "#bce0ff",
+        "mark_color": "#ff786b",
+        "breakpoint_color": "#ff786b",
+        "code_folding_color": "#ffffff",
+        "search_result_color": "#ffffff",
 
-        "gdscript/function_definition_color": "#66e6ff",  #
-        "gdscript/global_function_color": "#a3a3f5",  #
-        "gdscript/node_path_color": "#b8c47d",  #
-        "gdscript/node_reference_color": "#63c259",  #
-        "gdscript/annotation_color": "#ffb373",  #
-        "gdscript/string_name_color": "#ffc2a6",  #
+        "gdscript/function_definition_color": "#66e6ff",
+        "gdscript/global_function_color": "#a3a3f5",
+        "gdscript/node_path_color": "#b8c47d",
+        "gdscript/node_reference_color": "#63c259",
+        "gdscript/annotation_color": "#ffb373",
+        "gdscript/string_name_color": "#ffc2a6",
     }
 
     background_color = godot_theme["background_color"]
