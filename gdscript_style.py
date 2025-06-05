@@ -61,6 +61,7 @@ class GDScriptStyle(Style):
         Whitespace:               "#bbbbbb",  # for whitespace
         Text:                     godot_theme["text_color"],  # text
         Comment:                  godot_theme["comment_color"],  # any kind of comments
+        Comment.Doc:              godot_theme["doc_comment_color"],  # documentation comments
         Punctuation:              godot_theme["symbol_color"],  # punctuation (e.g. [!.,])
 
         Keyword:                  godot_theme["keyword_color"],  # any kind of keyword; especially if it doesn’t match any of the subtypes
