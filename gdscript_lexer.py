@@ -1409,7 +1409,7 @@ class GDScriptLexer(RegexLexer):
         "stringescape": [
             (
                 r'\\([\\abfnrtv"\']|\n|N\{.*?\}|u[a-fA-F0-9]{4}|'
-                r"U[a-fA-F0-9]{8}|x[a-fA-F0-9]{2}|[0-7]{1,3})",
+                r"U[a-fA-F0-9]{6}|x[a-fA-F0-9]{2}|[0-7]{1,3})",
                 String.Escape,
             )
         ],
