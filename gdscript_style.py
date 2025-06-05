@@ -47,6 +47,7 @@ class GDScriptStyle(Style):
         "mark_color": "#ff786b",
         "breakpoint_color": "#ff786b",
         "code_folding_color": "#ffffff",
+        "folded_code_region_color": "#ad75c4",  # without alpha is used as text color
         "search_result_color": "#ffffff",
 
         "gdscript/function_definition_color": "#66e6ff",
@@ -63,7 +64,7 @@ class GDScriptStyle(Style):
         Text:                     godot_theme["text_color"],  # text
         Comment:                  godot_theme["comment_color"],  # any kind of comments
         Comment.Doc:              godot_theme["doc_comment_color"],  # documentation comments
-        Comment.Region:           "#AD75C4",  # code folding regions
+        Comment.Region:           godot_theme["folded_code_region_color"],  # code folding regions
         Punctuation:              godot_theme["symbol_color"],  # punctuation (e.g. [!.,])
 
         Keyword:                  godot_theme["keyword_color"],  # any kind of keyword; especially if it doesn’t match any of the subtypes
