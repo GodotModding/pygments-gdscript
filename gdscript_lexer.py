@@ -1415,6 +1415,8 @@ class GDScriptLexer(RegexLexer):
         "strings-single": innerstring_rules(String.Single),
         "strings-double": innerstring_rules(String.Double),
         "strings-other": innerstring_rules(String.Other),
+        "strings-stringname": innerstring_rules(String.StringName),
+        "strings-nodepath": innerstring_rules(String.NodePath),
         "double_quotes": [
             (r'"', String.Double, "#pop"),
             (r'\\\\|\\"|\\\n', String.Escape),  # included here for raw strings
@@ -1448,6 +1450,30 @@ class GDScriptLexer(RegexLexer):
             (r"'", String.Other, "#pop"),
             include("strings-other"),
         ],
+        "stringnames": [
+            (r'[&]"', String.StringName, include("stringname_double")),
+            (r"[&]'", String.StringName, include("stringname_single")),
+        ],
+        "stringname_double": [
+            (r'"', String.StringName, "#pop"),
+            include("strings-stringname"),
+        ],
+        "stringname_single": [
+            (r"'", String.StringName, "#pop"),
+            include("strings-stringname"),
+        ],
+        "nodepaths": [
+            (r'[\^]"', String.NodePath, include("nodepath_double")),
+            (r"[\^]'", String.NodePath, include("nodepath_single")),
+        ],
+        "nodepath_double": [
+            (r'"', String.NodePath, "#pop"),
+            include("strings-nodepath"),
+        ],
+        "nodepath_single": [
+            (r"'", String.NodePath, "#pop"),
+            include("strings-nodepath"),
+        ],
         "functions": [
             (r"\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()", Name.Function),
             (
@@ -1466,6 +1492,8 @@ class GDScriptLexer(RegexLexer):
             include("punctuation"),
             include("builtins"),
             # strings
+            include("stringnames"),
+            include("nodepaths"),
             include("node_references"),
             (
                 '(r)(""")',

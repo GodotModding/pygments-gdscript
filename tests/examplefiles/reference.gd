@@ -167,7 +167,9 @@ func literals():
 	r"Hello" + r'Hi' # Raw strings
 	r"""Hello""" + r'''Hi''' # Triple-quoted raw strings
 	&"name" # StringName
+	&'name'
 	^"Node/Label" # NodePath
+	^'Node/Label'
 
 	# There are also two constructs that look like literals, but actually are not:
 	$NodePath # Shorthand for get_node("NodePath")

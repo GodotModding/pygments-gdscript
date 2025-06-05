@@ -88,6 +88,8 @@ class GDScriptStyle(Style):
         String.Interpol:          godot_theme["string_color"],  # interpolated parts (e.g. %s)
         String.Escape:            godot_theme["symbol_color"],  # escape sequences
         String.Other:             godot_theme["gdscript/node_reference_color"],  # node references
+        String.StringName:        godot_theme["gdscript/string_name_color"],  # string names
+        String.NodePath:          godot_theme["gdscript/node_path_color"],  # node path strings
 
         Number:                   godot_theme["number_color"],  # number literal
 
