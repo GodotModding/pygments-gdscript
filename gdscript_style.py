@@ -15,6 +15,7 @@ from pygments.token import (
 
 
 class GDScriptStyle(Style):
+    # Extracted from the default Godot Editor Theme
     godot_theme = {
         "symbol_color": "#abc9ff",
         "keyword_color": "#ff7085",
@@ -62,6 +63,7 @@ class GDScriptStyle(Style):
         Text:                     godot_theme["text_color"],  # text
         Comment:                  godot_theme["comment_color"],  # any kind of comments
         Comment.Doc:              godot_theme["doc_comment_color"],  # documentation comments
+        Comment.Region:           "#AD75C4",  # code folding regions
         Punctuation:              godot_theme["symbol_color"],  # punctuation (e.g. [!.,])
 
         Keyword:                  godot_theme["keyword_color"],  # any kind of keyword; especially if it doesn’t match any of the subtypes

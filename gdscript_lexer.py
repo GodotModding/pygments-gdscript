@@ -44,6 +44,7 @@ class GDScriptLexer(RegexLexer):
         "whitespace": [(r"\s+", Whitespace)],
         "comment": [
             (r"##.*$", Comment.Doc),
+            (r"#(?:end)?region.*$", Comment.Region),
             (r"#.*$", Comment.Single),
         ],
         "punctuation": [
